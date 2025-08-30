@@ -25,15 +25,14 @@ router.get('/', async (req, res) => {
     }
 
     const pageSize = parseInt(process.env.PAGE_SIZE) || 50;
-    const lastRank = req.query.lastRank ? parseInt(req.query.lastRank) : 0;
 
     try {
         const usersRef = db
             .collection('users')
             .doc(date)
             .collection('users')
-            .orderBy('global_rank', 'asc')
-            .startAfter(lastRank)
+            .orderBy('country_rank', 'asc')
+            .startAfter((page - 1) * pageSize)
             .limit(pageSize)
             
         const snapshot = await usersRef.get();
