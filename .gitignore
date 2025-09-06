@@ -1,4 +1,5 @@
 .env
 firebase_cert.json
+firebase_test_server.json
 node_modules/
 secret/
