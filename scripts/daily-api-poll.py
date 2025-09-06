@@ -29,6 +29,7 @@ def getUsers():
 def postToDB(users):
     # Firebase
     cred = credentials.Certificate("./firebase_cert.json")
+    # cred = credentials.Certificate("./firebase_test_server.json")
     firebase_admin.initialize_app(cred)
     db = firestore.client()
 

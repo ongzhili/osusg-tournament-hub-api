@@ -1,8 +1,11 @@
 const express = require('express');
 const routes = require('./routes');
+const morgan = require('morgan')
 
 const app = express();
 app.use(express.json());
+
+app.use(morgan("combined"));
 
 // Register all routes
 app.use('/api/v1/', routes);
